@@ -49,7 +49,11 @@
                             </b-form-group>
                             <br>
 
-                            <b-button type="reset" variant="danger">cancel</b-button>
+                            <b-button type="reset" variant="danger">
+                                <router-link :to="`/create`">
+                                    Cancel
+                                </router-link>
+                            </b-button>
                             <b-button type="submit" variant="primary">Submit</b-button>
                         </b-form>
                     </div>
@@ -92,13 +96,13 @@ export default {
             let url = window.location.href;
             let result = url.split('/');
             let id = result[4];
-            let data = await axios.put(`/api/product/update/${id}`. this.dataProduct)
+            await axios.put(`/api/product/update/${id}`, this.dataProduct)
             .then((response) => {
                 this.$router.push({
                     name: 'create'
                 });
                 console.log(response);
-            }).
+            })
         }
     },
 }
