@@ -11,7 +11,7 @@
 
                 <div class="card-body">
                     <div>
-                        <b-form >
+                        <b-form @submit.prevent="updateDataProduct">
                             <b-form-group id="name" label="Nama Product:" label-for="name">
                                 <b-form-input
                                 id="name"
@@ -92,7 +92,13 @@ export default {
             let url = window.location.href;
             let result = url.split('/');
             let id = result[4];
-            let data = await axios.put(`/api/update/${id}`)
+            let data = await axios.put(`/api/product/update/${id}`. this.dataProduct)
+            .then((response) => {
+                this.$router.push({
+                    name: 'create'
+                });
+                console.log(response);
+            }).
         }
     },
 }
