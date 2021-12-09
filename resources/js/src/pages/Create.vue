@@ -153,45 +153,6 @@ export default {
             }
         },
 
-        editProduct(item, index) {
-            this.put.name = item.name;
-            this.put.description = item.description;
-            this.put.stock = item.stock;
-            this.put.price = item.price;
-            this.idEdit = item.id;
-            this.indexEdit = index;
-            this.stateEdit = "edit";
-        },
-
-        async updateDataProduct() {
-            try {
-                this.popupActivo = true;
-                await axios
-                    .put(`api/product/update/${this.idEdit}`, {
-                        name: this.put.name,
-                        description: this.put.description,
-                        stock: this.put.stock,
-                        price: this.put.price,
-                    })
-                    .then((response) => {
-                        const data = response.data.data;
-                        this.posts[this.indexEdit].name = data.name;
-                        this.posts[this.indexEdit].description = data.description;
-                        this.posts[this.indexEdit].stock = data.stock;
-                        this.posts[this.indexEdit].price = data.price;
-                        setTimeout(() => {
-                            this.popupActivo = false;
-                        }, 5000);
-                        this.idEdit = null;
-                        this.indexEdit = null;
-                        this.stateEdit = "defaultEdit";
-                    });
-            } catch (error) {
-                throw error;
-            }
-        },
-
-
     },
 };
 </script>

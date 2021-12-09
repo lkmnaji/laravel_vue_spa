@@ -1,8 +1,10 @@
 import Index from '././pages/Index.vue';
 import Create from '././pages/Create.vue';
 import Edit from '././pages/Edit.vue';
+import Login from '././Auth/Login.vue';
+import Register from '././Auth/Register.vue';
 
-const router = [
+    const router = [
         {
             path: '/',
             name: 'index',
@@ -11,12 +13,24 @@ const router = [
         {
             path: '/create',
             name: 'create',
-            component: Create
+            component: Create,
+            meta : { requiresAuth : true }
         },
         {
             path: '/edit/:id',
             name: 'edit',
-            component: Edit
+            component: Edit,
+            meta : { requiresAuth : true }
+        },
+        {
+            path: '/login',
+            name: 'login',
+            component: Login
+        },
+        {
+            path: '/register',
+            name: 'register',
+            component: Register
         }
     ]
 
