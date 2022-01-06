@@ -2,7 +2,7 @@ import Index from '././pages/Index.vue';
 import Create from '././pages/Create.vue';
 import Edit from '././pages/Edit.vue';
 import Login from '././Auth/Login.vue';
-import Register from '././Auth/Register.vue';
+import StockProduct from '././pages/stock/Product.vue';
 
     const router = [
         {
@@ -28,9 +28,9 @@ import Register from '././Auth/Register.vue';
             component: Login
         },
         {
-            path: '/register',
-            name: 'register',
-            component: Register
+            path: '/stock/product',
+            name: 'stock-product',
+            component: StockProduct
         }
     ]
 

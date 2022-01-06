@@ -11,6 +11,9 @@
                     <router-link to="/create" tag="b-nav-item">
                         Product
                     </router-link>
+                    <router-link to="/stock/product" tag="b-nav-item">
+                        Stock Product
+                    </router-link>
                     <router-link to="/login" tag="b-nav-item">
                         Login
                     </router-link>

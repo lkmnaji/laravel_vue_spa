@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\StockProductController;
 // use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('product');
     Route::delete('/product/delete/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::prefix('stockproduct')->group(function () {
+        Route::post('/store-stockproduct', [StockProductController::class, 'storeProduct']);
+    });
 });
 
 Route::post('/register', [AuthController::class, 'register'])->name('register');
